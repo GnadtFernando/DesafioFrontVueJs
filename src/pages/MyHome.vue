@@ -1,12 +1,13 @@
 <template>
   <main>
     <div>
-      <input v-model="message" placeholder="Nome" />
+      <input placeholder="Nome" />
     </div>
 
-    <select v-model="selected">
+    <select>
       <option value="" v-for="profissao in profissao" v-bind:key="profissao.id">
-        {{ profissao }}
+        {{ profissao.profissao }}
+
       </option>
     </select>
   </main>
