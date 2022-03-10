@@ -24,13 +24,13 @@ export default {
       entidade: [],
     };
   },
+
   mounted() {
     api
       .get(
         "/endereco/Enderecos/13480-460?api-key=92344d33-65ee-4a33-a3a2-a1fb7fcd65a7"
       )
       .then((response) => {
-        console.log(response.data);
         this.endereco = response.data;
       }),
       api
