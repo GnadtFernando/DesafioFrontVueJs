@@ -12,7 +12,11 @@
       </option>
     </select>
     <div>
-      <input placeholder="Entidade" />
+      <select>
+      <option value="" v-for="entidade in entidade" v-bind:key="entidade.id">
+        {{ entidade.NomeFantasia }} {{entidade.RazaoSocial}}
+      </option>
+    </select>
     </div>
     <div>
       <button>Enviar</button>
