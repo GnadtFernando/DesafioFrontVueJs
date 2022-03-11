@@ -1,15 +1,22 @@
 <template>
   <main>
     <div>
-      <input placeholder="Nome" />
+      <input placeholder="Cidade" />
     </div>
-
+    <div>
+      <input placeholder="Estado" />
+    </div>
     <select>
       <option value="" v-for="profissao in profissao" v-bind:key="profissao.id">
         {{ profissao.profissao }}
-
       </option>
     </select>
+    <div>
+      <input placeholder="Entidade" />
+    </div>
+    <div>
+      <button>Enviar</button>
+    </div>
   </main>
 </template>
 
@@ -33,6 +40,7 @@ export default {
       )
       .then((response) => {
         this.endereco = response.data;
+        console.log(response.data);
       }),
       api
         .get(
@@ -60,6 +68,12 @@ main {
   text-align: center;
 }
 select {
+  margin-top: 10px;
+}
+input {
+  margin-top: 10px;
+}
+button {
   margin-top: 10px;
 }
 </style>
