@@ -1,5 +1,8 @@
 <template>
   <main>
+     <div>
+      <input placeholder="Nome" />
+    </div>
     <div>
       <input placeholder="Cidade" />
     </div>
@@ -51,7 +54,6 @@ export default {
           "/profissao/SP/Limeira?api-key=eebc059d-6838-4762-8e28-d2f726753866"
         )
         .then((response) => {
-          console.log(response.data);
           this.profissao = response.data;
         }),
       api
@@ -59,7 +61,6 @@ export default {
           "/entidade/Aerovi%C3%A1rio/SP/Limeira?api-key=f1e6c49a-ca38-45d7-984a-616ff4fb458a"
         )
         .then((response) => {
-          console.log(response.data);
           this.entidade = response.data;
         });
   },
