@@ -1,25 +1,31 @@
 <template>
   <main>
-     <div>
+    <div id="quali-form">
+      <label form="nomeCliente">Nome</label>
       <input placeholder="Nome" />
     </div>
-    <div>
-      <input placeholder="Cidade" />
-    </div>
+    <label form="endereco">Informe o endereço</label>
+    <select>
+      <option value="" v-for="endereco in endereco" v-bind:key="endereco">
+        {{ endereco }}
+      </option>
+    </select>
     <div>
       <input placeholder="Estado" />
     </div>
+    <label form="profissao">Informe sua profissâo</label>
     <select>
       <option value="" v-for="profissao in profissao" v-bind:key="profissao.id">
         {{ profissao.profissao }}
       </option>
     </select>
     <div>
+      <label form="entidade">Informe a entidade</label>
       <select>
-      <option value="" v-for="entidade in entidade" v-bind:key="entidade.id">
-        {{ entidade.NomeFantasia }} {{entidade.RazaoSocial}}
-      </option>
-    </select>
+        <option value="" v-for="entidade in entidade" v-bind:key="entidade.id">
+          {{ entidade.NomeFantasia }} {{ entidade.RazaoSocial }}
+        </option>
+      </select>
     </div>
     <div>
       <button>Enviar</button>
@@ -61,6 +67,7 @@ export default {
           "/entidade/Aerovi%C3%A1rio/SP/Limeira?api-key=f1e6c49a-ca38-45d7-984a-616ff4fb458a"
         )
         .then((response) => {
+          console.log(response.data);
           this.entidade = response.data;
         });
   },
@@ -71,6 +78,19 @@ export default {
 main {
   background-color: #344960;
   text-align: center;
+}
+
+#quali-form {
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+label {
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: white;
+  padding: 5px 10px;
+  border-left: 4px solid #3ff7bf;
 }
 select {
   margin-top: 10px;
