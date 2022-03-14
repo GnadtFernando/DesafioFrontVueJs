@@ -17,16 +17,7 @@
   html,
   body{
       background-color: var(--color-background);
-  }
-
-  a{
-      text-decoration: none;
-      transition: 0.2s opacity;
-  }
-
-  a:hover{
-    opacity: 0,8;
-  }
+  } 
 
   main{
       width: 100%;

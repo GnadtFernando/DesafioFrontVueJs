@@ -10,9 +10,7 @@
         {{ endereco }}
       </option>
     </select>
-    <div>
-      <input placeholder="Estado" />
-    </div>
+    <div></div>
     <label form="profissao">Informe sua profissâo</label>
     <select>
       <option value="" v-for="profissao in profissao" v-bind:key="profissao.id">
@@ -28,7 +26,7 @@
       </select>
     </div>
     <div>
-      <button>Enviar</button>
+      <button onclick="beneficiario">Enviar </button>
     </div>
   </main>
 </template>
@@ -40,6 +38,7 @@ export default {
   name: "MyHome",
   data() {
     return {
+      beneficiario: [],
       endereco: [],
       profissao: [],
       entidade: [],
@@ -53,7 +52,7 @@ export default {
       )
       .then((response) => {
         this.endereco = response.data;
-        console.log(response.data);
+        console.log(this.endereco);
       }),
       api
         .get(
@@ -67,9 +66,30 @@ export default {
           "/entidade/Aerovi%C3%A1rio/SP/Limeira?api-key=f1e6c49a-ca38-45d7-984a-616ff4fb458a"
         )
         .then((response) => {
-          console.log(response.data);
           this.entidade = response.data;
         });
+    api
+      .post(
+        "planos-dinamico/ecommerce/lista?api-key=15ebe59a-e2bb-47b2-8cdf-948ec5e0b44e",
+        {
+          firstName: "Fred",
+          lastName: "Flintstone",
+          entidade: "ASPROFILI",
+          beneficiarios: [
+          "Fred"
+          ],
+          cidade: "Limeira",
+          uf: "SP",
+        }
+      )
+      .then(function (response) {
+        console.log(response);
+        
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+
   },
 };
 </script>
