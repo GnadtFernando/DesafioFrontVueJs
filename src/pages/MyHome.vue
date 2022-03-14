@@ -26,7 +26,7 @@
       </select>
     </div>
     <div>
-      <button onclick="beneficiario">Enviar </button>
+      <button onclick="beneficiario">Enviar</button>
     </div>
   </main>
 </template>
@@ -72,24 +72,23 @@ export default {
       .post(
         "planos-dinamico/ecommerce/lista?api-key=15ebe59a-e2bb-47b2-8cdf-948ec5e0b44e",
         {
-          firstName: "Fred",
-          lastName: "Flintstone",
-          entidade: "ASPROFILI",
           beneficiarios: [
-          "Fred"
+            {
+              firstName: "Fred",
+              lastName: "Flintstone",
+            },
           ],
+          entidade: "this.entidade",
           cidade: "Limeira",
           uf: "SP",
         }
       )
       .then(function (response) {
         console.log(response);
-        
       })
       .catch(function (error) {
         console.log(error);
       });
-
   },
 };
 </script>
